@@ -43,7 +43,7 @@ const AnimePage = ({params} : PageProps) => {
     const addItems = (item : any) => {
       const items =JSON.parse(localStorage.getItem("favourite")!)
       setCartList((cartList: any)  => [...cartList,data?.data])
-      items.push(item);
+      items?.push(item);
     }
   return (
     <>
