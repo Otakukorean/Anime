@@ -22,7 +22,7 @@ const AnimePage = ({params} : PageProps) => {
     useEffect(() => {
       const checkifExist = (id : string | any) => {
         const items =JSON.parse(localStorage.getItem("favourite")!)
-        if(items.some((e : any) => e.id == id)){
+        if(items?.some((e : any) => e.id == id)){
           SetExist(true)
         }
         else {
