@@ -62,7 +62,7 @@ const AnimePage = ({params} : PageProps) => {
               <div className=''>
                <Image className='w-[300px] h-[500px] rounded-md object-cover' src={data?.data?.attributes?.posterImage?.original} width={1000} height={1000} alt={data?.data?.attributes?.titles.en}  />
               </div>
-              <div className='max-h-[500px] bg-[#212121] flex justify-between flex-col p-4 rounded-md text-white'>
+              <div className='md:max-h-[500px] bg-[#212121] flex justify-between flex-col p-4 rounded-md text-white'>
                 <div>
                   <div className='flex gap-1 items-start justify-center flex-col'>
                   <h1 className='text-2xl font-bold'>Name: {data?.data?.attributes?.titles?.en}</h1>
