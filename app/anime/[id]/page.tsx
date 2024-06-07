@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react'
 interface PageProps {
     params : {id : string}
 }
-const cartLocalStorage = JSON.parse(localStorage.getItem("favourite")!)
+const cartLocalStorage = JSON.parse(localStorage.getItem("favourite") || [])
 
 const AnimePage = ({params} : PageProps) => {
   const [cartList, setCartList] = useState<unknown>(cartLocalStorage)
@@ -21,7 +21,7 @@ const AnimePage = ({params} : PageProps) => {
     }, [cartList]) 
     useEffect(() => {
       const checkifExist = (id : string | any) => {
-        const items =JSON.parse(localStorage.getItem("favourite")!)
+        const items =JSON.parse(localStorage.getItem("favourite") || [])
         if(items?.some((e : any) => e.id == id)){
           SetExist(true)
         }
@@ -35,8 +35,8 @@ const AnimePage = ({params} : PageProps) => {
     },[data,cartList])
 
     const removeFromfavouriteList = (id : any) => {
-      const items =JSON.parse(localStorage.getItem("favourite")!)
-      const filtered = items.filter((item : any) => item.id !== id);
+      const items =JSON.parse(localStorage.getItem("favourite") || [] )
+      const filtered = items?.filter((item : any) => item.id !== id);
       setCartList((cartList : any) => cartList.filter((item : any) => item.id !== id))
       localStorage.setItem('favourite',JSON.stringify(filtered))
     }
